@@ -26,6 +26,14 @@
 </p>
 </tbody>
 
+
+<%= form_tag("/search", method: "get") do %>
+    <%= text_field_tag(:q) %>
+    <%= hidden_field_tag(:parent_id, @project.id)%>
+    <%= submit_tag('Search Stories') %>
+<% end %>
+<br/>
+
 <tbody>
 <p>
   <strong>Storyboard:</strong><br>

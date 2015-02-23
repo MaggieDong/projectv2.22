@@ -10,6 +10,8 @@ class StoriesController < ApplicationController
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @story = Story.find(params[:id])
+    @developers = Developer.all.select {|s| s.Story_id == @story.id}
   end
 
   # GET /stories/new

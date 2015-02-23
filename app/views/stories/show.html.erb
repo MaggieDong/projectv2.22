@@ -21,9 +21,25 @@
 </p>
 
 <p>
-  <strong>Developer:</strong>
-  <%= @story.Developer %>
+  <strong>Developers are:</strong>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @developers.each do |developer| %>
+      <tr>
+        <td><%= developer.name %></td>
+        <td><%= developer.email%></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
 </p>
 
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+<!--<%= link_to 'Edit', edit_story_path(@story) %> |-->
+<%= link_to 'Back', :back %>

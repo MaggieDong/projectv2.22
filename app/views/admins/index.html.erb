@@ -19,8 +19,8 @@
         <td><%= admin.email %></td>
         <td><%= admin.password %></td>
         <td><%= link_to 'Show', admin %></td>
-       <!-- <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+       <!-- <td><%= link_to 'Edit', edit_admin_path(admin) %></td>-->
+        <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -79,7 +79,7 @@
         <td><% @projects.each do |f| %>
               <%= f.title if (f.id == developer.Project_id ) %>
           <% end %></td>
-        <td><%= link_to 'Show', developer %></td>
+       <!-- <td><%= link_to 'Show', developer %></td>-->
         <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
         <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

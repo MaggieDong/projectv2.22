@@ -18,13 +18,16 @@
 <p>
   <strong>Project:</strong>
   <% @project.each do |f| %>
-  <%= f.title if (f.id == @developer.Project_id ) %>
+  <%= f.title %>
   <% end %>
+  <br>
+  <%= link_to "project overview", @project%><br>
 </p>
+
 <br>
 <%= link_to "Log out", logout_path %><br>
 <%= link_to "change your password", passwordchange_path %><br>
-<h1>Listing All Stories</h1>
+<h1>Listing All Stories in the project</h1>
 <table>
   <thead>
   <tr>
@@ -77,4 +80,4 @@
 
 <%= link_to 'create a story', createstory_path %> <br> <br>
 <%= link_to 'sign up a story', signup_path %> <br> <br>
-<%= link_to 'Back', admins_path %>
+<!--<%= link_to 'Back', :back %>-->

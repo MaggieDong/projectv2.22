@@ -12,7 +12,7 @@ class DevelopersController < ApplicationController
   # GET /developers/1.json
   def show
  #   @developer =Developer.all
-    @project = Project.all
+    @project = Project.all.select{|s| s.id == @developer.Project_id }
     @stories = Story.all.select{|s| s.Developer_id == @developer.id}
     @allstories = Story.all.select{|s| s.Project_id == @developer.Project_id}
   end
@@ -33,7 +33,7 @@ class DevelopersController < ApplicationController
 
     respond_to do |format|
       if @developer.save
-        format.html { redirect_to @developer, notice: 'Developer was successfully created.' }
+        format.html { redirect_to admins_path, notice: 'Developer was successfully created.' }
         format.json { render :show, status: :created, location: @developer }
       else
         format.html { render :new }
@@ -61,7 +61,7 @@ class DevelopersController < ApplicationController
   def update
     respond_to do |format|
       if @developer.update(developer_params)
-        format.html { redirect_to @developer, notice: 'Developer was successfully updated.' }
+        format.html { redirect_to admins_path, notice: 'Developer was successfully updated.' }
         format.json { render :show, status: :ok, location: @developer }
       else
         format.html { render :edit }
@@ -75,7 +75,7 @@ class DevelopersController < ApplicationController
   def destroy
     @developer.destroy
     respond_to do |format|
-      format.html { redirect_to developers_url, notice: 'Developer was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Developer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

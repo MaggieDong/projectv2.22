@@ -4,7 +4,8 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user||=User.find_by(id: session[:user_id])
+    @current_user||=Admin.find_by(email: session[:email])
+    @current_user||=Developer.find_by(email: session[:email])
   end
 
   def logged_in?
@@ -12,7 +13,7 @@ module SessionsHelper
   end
 
   def log_out
-    session.delete(:user_id)
+    session.delete(:email)
     @current_user=nil
   end
 
