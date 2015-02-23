@@ -10,10 +10,25 @@
   <%= @project.description %>
 </p>
 
-<p>
-  <strong>Developer:</strong>
-  <%= @project.developer %>
-</p>
+<strong>List of Developers</strong>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @developers.each do |developer| %>
+      <tr>
+        <td><%= developer.name %></td>
+        <td><%= developer.email%></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
 
 <tbody>
 <p>

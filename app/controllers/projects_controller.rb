@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @developers = Developer.all.select {|dev| dev.Project_id == params[:id].to_i}
     @t0=0
     @t1=0
     @t2=0
