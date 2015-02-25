@@ -1,12 +1,14 @@
 == README
-Admin account:</br>
-email: admin@ncsu.edu <br>
+Admin account:
 
-password: a <br>
+email: admin@ncsu.edu
 
-Developer account:<br>
+password: a
 
-dev10@123.com	<br>
+Developer account:
+
+dev10@123.com	
+
 password: 123
 
 This README would normally document whatever steps are necessary to get the
