@@ -1,6 +1,45 @@
 <h1>Editing Story</h1>
 
-<%= render 'form' %>
+<%= form_for(@story) do |f| %>
+  <% if @story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+      <% @story.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :point_value %><br>
+    <%= f.number_field :point_value %>
+  </div>
+  <div class="field">
+    <%= f.label :Stage %><br>
+    <!--<%= f.text_field :Stage %>-->
+    <%= select("story", "Stage", ['Analysis','Ready For Dev','In Dev','Dev Complete','In Test','Complete'].collect{ |c| c}) %>
+
+  </div>
+ <!-- <div class="field">
+    <%= f.label :Developer %><br>
+    <%= f.text_field :Developer %>
+  </div>-->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @story %> |
 <%= link_to 'Back', :back %>
