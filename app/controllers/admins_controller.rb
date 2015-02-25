@@ -7,6 +7,7 @@ class AdminsController < ApplicationController
     @admins = Admin.all
     @projects = Project.all
     @developers = Developer.all
+    @user = current_user if logged_in?
   end
 
   # GET /admins/1
