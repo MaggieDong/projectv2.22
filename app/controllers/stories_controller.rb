@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :update, :destroy]
+  before_action :set_story, only: [:show, :edit, :update, :destroy, :sign_up]
 
   # GET /stories
   # GET /stories.json
@@ -12,6 +12,7 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @developers = Developer.all.select {|s| s.Story_id == @story.id}
+    @user = current_user if logged_in?
   end
 
   # GET /stories/new
@@ -63,6 +64,34 @@ class StoriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to stories_url, notice: 'Story was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def sign_up
+    @user = current_user
+    #@story = Story.find(params[:id])
+    @developers = Developer.all.select{|dev| dev.Story_id == params[:id].to_i}
+    if @developers.size < 2
+      respond_to do |format|
+        if @user.update_attributes(:Story_id => params[:id].to_i)
+          format.html { redirect_to @story, notice: 'You signed up for this story. Any existing signed up story will be replaced by this story.'}
+          format.json { render :show, status: :ok, location: @story }
+        else
+          format.html { render :show }
+          format.json { render json: @story.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      i = rand > 0.5 ? 1 : 0
+      respond_to do |format|
+        if @developers[i].update_attributes(:Story_id => nil) && @user.update_attributes(:Story_id => params[:id].to_i)
+          format.html { redirect_to @story, notice: 'You signed up for this story.Any previous signed up story is replaced by this story.'}
+          format.json { render :show, status: :ok, location: @story }
+        else
+          format.html { render :show }
+          format.json { render json: @story.errors, status: :unprocessable_entity }
+        end
+      end
     end
   end
 

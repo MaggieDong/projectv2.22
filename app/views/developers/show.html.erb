@@ -49,6 +49,7 @@
         <td><%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Sign up', sign_up_story_path(story) %></td>
         <td><% end %></td>
   </tr>
   </tbody>
@@ -79,5 +80,4 @@
 </table>
 
 <%= link_to 'create a story', createstory_path %> <br> <br>
-<%= link_to 'sign up a story', signup_path %> <br> <br>
 <!--<%= link_to 'Back', :back %>-->
