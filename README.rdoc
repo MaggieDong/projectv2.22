@@ -1,10 +1,10 @@
 == README
-Admin account:
-email: admin@ncsu.edu
-password: a
-Developer account:
-dev10@123.com	
-password: 123
+Admin account:<br>
+email: admin@ncsu.edu <br>
+password: a <br>
+Developer account:<br>
+dev10@123.com	<br>
+password: 123 <br>
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
