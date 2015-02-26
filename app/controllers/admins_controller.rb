@@ -21,6 +21,7 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+    @user = current_user if logged_in?
   end
 
   # GET /admins/1/edit
