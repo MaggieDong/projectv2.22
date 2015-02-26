@@ -80,6 +80,7 @@ class ProjectsController < ApplicationController
   def newstory
     @story = Story.new
     @project = Project.find(params[:id])
+    @user = current_user if logged_in?
   end
 
   def search
