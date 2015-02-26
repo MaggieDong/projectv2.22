@@ -19,6 +19,7 @@ class StoriesController < ApplicationController
   # GET /stories/new
   def new
     @story = Story.new
+    @user = current_user if logged_in?
   end
 
   # GET /stories/1/edit
