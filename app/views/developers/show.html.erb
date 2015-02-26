@@ -83,6 +83,32 @@
 
 <%= link_to 'create a story', createstory_path %> <br> <br>
 <!--<%= link_to 'Back', :back %>-->
+
+<h1>Listing Stories assigned to you</h1>
+    <table>
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Point value</th>
+        <th>Stage</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @mystories.each do |story| %>
+          <tr>
+            <td><%= story.title %></td>
+            <td><%= story.description %></td>
+            <td><%= story.point_value %></td>
+            <td><%= story.Stage %></td>
+            <td><%= link_to 'Show', story %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
 <% else %>
 You are currently not assigned to any projects, please contact admins!
 <br><br>
