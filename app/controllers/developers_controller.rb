@@ -22,6 +22,11 @@ class DevelopersController < ApplicationController
     @stories = Story.all.select{|s| s.Developer_id == @developer.id}
     @allstories = Story.all.select{|s| s.Project_id == @developer.Project_id}
     @mystories = Story.all.select{|s| s.id == @developer.Story_id}
+    if (@mystories.length == 0)
+      @errors2 = 1
+    else
+      @errors2 = nil
+    end
   end
 
   # GET /developers/new
