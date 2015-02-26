@@ -93,7 +93,7 @@ class DevelopersController < ApplicationController
     end
   end
    def passwordchange
-
+        @user = current_user if logged_in?
    end
   private
     # Use callbacks to share common setup or constraints between actions.
