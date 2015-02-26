@@ -81,6 +81,7 @@ class AdminsController < ApplicationController
     Story.all.each{|s| @t3+=s.point_value if (s.Stage == 'Dev Complete' && s.Project_id == @project.id)}
     Story.all.each{|s| @t4+=s.point_value if (s.Stage == 'In Test' && s.Project_id == @project.id)}
     Story.all.each{|s| @t5+=s.point_value if (s.Stage == 'Complete' && s.Project_id == @project.id)}
+    @user = current_user if logged_in?
   end
 
   def destroyprojects
