@@ -8,11 +8,15 @@
 <p>
   <strong>Email:</strong>
   <%= @developer.email %>
+  &nbsp;&nbsp;&nbsp;
+  <%= link_to "Log out", logout_path %><br>
 </p>
 
 <p>
   <strong>Password:</strong>
   <%= @developer.password %>
+   &nbsp;&nbsp;&nbsp;
+  <%= link_to "change your password", passwordchange_path %><br>
 </p>
 
 <p>
@@ -20,13 +24,12 @@
   <% @project.each do |f| %>
   <%= f.title %>
   <% end %>
-  <br>
+  &nbsp;&nbsp;&nbsp;
   <%= link_to "project overview", @project%><br>
 </p>
 
 <br>
 <%= link_to "Log out", logout_path %><br>
-<%= link_to "change your password", passwordchange_path %><br>
 <h1>Listing All Stories in the project</h1>
 <table>
   <thead>
@@ -46,7 +49,7 @@
         <td><%= story.description %></td>
         <td><%= story.point_value %></td>
         <td><%= story.Stage %></td>
-        <td><%= link_to 'Show', story %></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Show', story %></td>
         <td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Sign up', sign_up_story_path(story) %></td>
@@ -73,7 +76,7 @@
       <td><%= story.description %></td>
       <td><%= story.point_value %></td>
       <td><%= story.Stage %></td>
-      <td><%= link_to 'Show', story %></td>
+      <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Show', story %></td>
     </tr>
 <% end %>
   </tbody>
