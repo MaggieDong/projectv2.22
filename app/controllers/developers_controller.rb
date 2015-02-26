@@ -56,6 +56,7 @@ class DevelopersController < ApplicationController
   end
 
   def createstory
+    @user = current_user if logged_in?
     @story = Story.new
     #Story.new.Developer_id = params[:id]
     @developer = Developer.find(params[:id])
