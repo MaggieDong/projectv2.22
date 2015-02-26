@@ -85,6 +85,7 @@ class ProjectsController < ApplicationController
   def search
     @project = Project.find(params[:parent_id])
     @stories = Story.all.select { |story| ((story.title =~ /#{params[:q]}/i) ||(story.description =~ /#{params[:q]}/i) ) && (story.Project_id == @project.id)}
+    @user = current_user if logged_in?
   end
 
   private
