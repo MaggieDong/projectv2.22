@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.all
+    @user = current_user if logged_in?
   end
 
   # GET /stories/1
