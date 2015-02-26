@@ -8,6 +8,8 @@
 <p>
   <strong>Email:</strong>
   <%= @admin.email %>
+  &nbsp;&nbsp;&nbsp;
+  <%= link_to "Log out", logout_path %><br>
 </p>
 
 <p>
@@ -15,8 +17,8 @@
   <%= @admin.password %>
 </p>
 
-<%= link_to "Log out", logout_path %><br>
-<h1>Listing Admins</h1>
+
+<h2>Listing Admins</h2>
 
 <table>
   <thead>
@@ -43,7 +45,7 @@
 
 <%= link_to 'New Admin', new_admin_path %>
 
-<h1>Listing Projects</h1>
+<h2>Listing Projects</h2>
 
 <table>
   <thead>
@@ -61,7 +63,7 @@
         <td><%= project.title %></td>
         <td><%= project.description %></td>
         <td><%= project.developer %></td>
-        <td><%= link_to 'Show all stories', showstories_path(project) %></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Show all stories', showstories_path(project) %></td>
         <!--  <td><%= link_to 'Edit', edit_project_path(project) %></td>-->
         <td><%= link_to 'Destroy', destroyprojects_path(project), data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -70,7 +72,7 @@
 </table>
 <%= link_to 'New project', new_project_path %>
 
-<h1>Listing Developers</h1>
+<h2>Listing Developers</h2>
 
 <table>
   <thead>
@@ -93,7 +95,7 @@
               <%= f.title if (f.id == developer.Project_id ) %>
           <% end %></td>
        <!-- <td><%= link_to 'Show', developer %></td>-->
-        <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Edit', edit_developer_path(developer) %></td>
         <td><%= link_to 'Destroy', developer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
