@@ -75,6 +75,7 @@ class AdminsController < ApplicationController
     @t5=0
     @stories = Story.all
     @project = Project.find(params[:id])
+    @developers = Developer.all.select {|s| s.Project_id == @project.id}
     Story.all.each{|s| @t0+=s.point_value if (s.Stage == 'Analysis' && s.Project_id == @project.id)}
     Story.all.each{|s| @t1+=s.point_value if (s.Stage == 'Ready For Dev' && s.Project_id == @project.id)}
     Story.all.each{|s| @t2+=s.point_value if (s.Stage == 'In Dev' && s.Project_id == @project.id)}
