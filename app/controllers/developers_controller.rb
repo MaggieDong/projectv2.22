@@ -32,6 +32,7 @@ class DevelopersController < ApplicationController
   # GET /developers/new
   def new
     @developer = Developer.new
+    @user = current_user if logged_in?
   end
 
   # GET /developers/1/edit
