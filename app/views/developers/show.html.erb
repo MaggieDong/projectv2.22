@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% if (@project == nil) %>
 <p>
   <strong>Name:</strong>
   <%= @developer.name %>
@@ -83,3 +83,8 @@
 
 <%= link_to 'create a story', createstory_path %> <br> <br>
 <!--<%= link_to 'Back', :back %>-->
+<% else %>
+You are currently not assigned to any projects, please contact admins!
+<br><br>
+<%= link_to 'back to login', login_path %><br>
+<% end %>
