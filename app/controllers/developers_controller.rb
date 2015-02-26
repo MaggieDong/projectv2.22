@@ -12,7 +12,8 @@ class DevelopersController < ApplicationController
   # GET /developers/1.json
   def show
  #   @developer =Developer.all
-    @project = Project.all.select{|s| s.id == @developer.Project_id }
+    @project = Project.all.select{|s| s.id == @developer.Project_id }  if(@developer.Project_id != nil)
+    @project = nil if (@developer.Project_id == nil)
     @stories = Story.all.select{|s| s.Developer_id == @developer.id}
     @allstories = Story.all.select{|s| s.Project_id == @developer.Project_id}
   end
